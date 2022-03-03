@@ -5,6 +5,8 @@ namespace East.Ideas.BlazorApp1.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<Proposal> Proposals { get; set; } = default!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
