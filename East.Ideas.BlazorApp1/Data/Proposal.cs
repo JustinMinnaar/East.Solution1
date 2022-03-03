@@ -11,6 +11,5 @@ namespace East.Ideas.BlazorApp1.Data
         public string? Details { get; set; }
         public Guid OwnerId { get; set; }
         public DateTime? Created { get; set; }
-
     }
 }

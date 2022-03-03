@@ -7,9 +7,9 @@ namespace East.Ideas.BlazorApp1.Data
     {
         public DbSet<Proposal> Proposals { get; set; } = default!;
 
-        public ApplicationDbContext() : base(new DbContextOptions<ApplicationDbContext>())
-        {
-        }
+        //public ApplicationDbContext() : base(new DbContextOptions<ApplicationDbContext>())
+        //{
+        //}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

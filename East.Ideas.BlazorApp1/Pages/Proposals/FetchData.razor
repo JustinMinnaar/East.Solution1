@@ -1,0 +1,50 @@
+﻿@page "/proposals"
+
+<PageTitle>My Proposals</PageTitle>
+
+@inject ProposalsService service
+
+<h1>My Proposals</h1>
+
+<p>These are all your proposals that you have created.</p>
+
+@if (proposals == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Created</th>
+            </tr>
+            <tr>
+                <th colspan="2">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var proposal in proposals)
+            {
+                <tr>
+                    <td>@proposal.Name</td>
+                    <td>@proposal.Created?.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td>@proposal.Details</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Proposal[]? proposals;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var ownerId = Guid.Empty;
+        proposals = await service.GetProposalsAsync(ownerId);
+    }
+}
