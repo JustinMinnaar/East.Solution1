@@ -6,10 +6,10 @@ namespace East.Ideas.BlazorApp1.Data
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-
         public string? Name { get; set; }
         public string? Details { get; set; }
         public Guid OwnerId { get; set; }
         public DateTime? Created { get; set; }
     }
+
 }

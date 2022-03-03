@@ -1,0 +1,26 @@
+﻿@page "/Proposals/Edit/{id:guid}"
+
+@inject ProposalsService service
+
+<PageTitle>My Proposal</PageTitle>
+
+<h1>My Proposal</h1>
+
+<p>Describe your proposal to our investors.</p>
+
+@code {
+    private Proposal? proposal;
+
+    [Parameter]
+    public Guid? id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        proposal = await service.GetProposalAsync(id);
+        if (proposal == null)
+        {
+            proposal = new Proposal();
+        }
+    }
+
+}

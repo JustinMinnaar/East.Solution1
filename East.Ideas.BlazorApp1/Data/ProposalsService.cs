@@ -21,6 +21,16 @@ public class ProposalsService
         return proposals;
     }
 
+    public async Task<Proposal?> GetProposalAsync(Guid? id)
+    {
+        if (id == null) return null;
+
+        var proposal = await db.Proposals
+            .Where(p => p.Id == id)
+            .FirstOrDefaultAsync();
+        return proposal;
+    }
+
 
     public void SaveProposal(Proposal? proposal)
     {
